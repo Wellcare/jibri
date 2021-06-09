@@ -40,7 +40,7 @@ class CallUrlInfoTest : ShouldSpec() {
                 }
             }
             context("with url params") {
-                val info = CallUrlInfo("baseUrl", "callName", listOf("one", "two", "three"))
+                val info = CallUrlInfo("baseUrl", "callName","", listOf("one", "two", "three"))
                 should("assign the fields correctly") {
                     info.baseUrl shouldBe "baseUrl"
                     info.callName shouldBe "callName"
