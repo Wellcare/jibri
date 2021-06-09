@@ -81,6 +81,7 @@ class XmppApiTest : ShouldSpec() {
             xmppServerHosts = listOf("xmppServerHost1", "xmppServerHost2"),
             xmppDomain = "xmppDomain",
             baseUrl = "baseUrl",
+            jwt = "xxxxx",
             controlLogin = XmppCredentials(
                 domain = "controlXmppDomain",
                 username = "xmppUsername",
