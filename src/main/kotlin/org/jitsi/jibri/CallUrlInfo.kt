@@ -37,12 +37,11 @@ data class CallUrlInfo(
     val callUrl: String
         get() {
             if (urlParams.isNotEmpty()) {
-                if (jwt.isNullOrEmpty()){
+                if (jwt.isNullOrEmpty()) {
                     return "$baseUrl/$callName#${urlParams.joinToString("&")}"
                 } else {
                     return "$baseUrl/$callName?jwt=$jwt#${urlParams.joinToString("&")}"
                 }
-                
             } else {
                 return "$baseUrl/$callName"
             }

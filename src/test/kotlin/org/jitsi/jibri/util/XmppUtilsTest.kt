@@ -39,7 +39,7 @@ class XmppUtilsTest : ShouldSpec() {
                 val expected = CallUrlInfo(baseUrl, "roomName", "")
                 val jid = JidCreate.entityBareFrom("${expected.callName}@$baseDomain")
                 should("convert to a call url correctly") {
-                    getCallUrlInfoFromJid(jid, "", baseDomain, baseUrl,"") shouldBe expected
+                    getCallUrlInfoFromJid(jid, "", baseDomain, baseUrl, "") shouldBe expected
                 }
             }
             context("a basic room jid with empty baseUrl") {
@@ -59,7 +59,7 @@ class XmppUtilsTest : ShouldSpec() {
             context("a roomjid with a call subdomain") {
                 val expected = CallUrlInfo("https://$baseDomain/subdomain", "roomName", "")
                 val jid = JidCreate.entityBareFrom("${expected.callName}@mucdomain.subdomain.$baseDomain")
-                getCallUrlInfoFromJid(jid, "mucdomain.", baseDomain, "","") shouldBe expected
+                getCallUrlInfoFromJid(jid, "mucdomain.", baseDomain, "", "") shouldBe expected
             }
             context("a basic muc room jid, domain contains part to be stripped") {
                 // domain contains 'conference'
