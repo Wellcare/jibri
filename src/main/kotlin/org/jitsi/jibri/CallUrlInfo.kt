@@ -44,7 +44,7 @@ data class CallUrlInfo(
                 }
                 
             } else {
-                "$baseUrl/$callName"
+                return "$baseUrl/$callName"
             }
         }
 
