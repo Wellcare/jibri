@@ -30,13 +30,19 @@ import java.util.Objects
 data class CallUrlInfo(
     val baseUrl: String = "",
     val callName: String = "",
+    val jwt: String = "",
     private val urlParams: List<String> = listOf()
 ) {
     @get:JsonIgnore
     val callUrl: String
         get() {
-            return if (urlParams.isNotEmpty()) {
-                "$baseUrl/$callName#${urlParams.joinToString("&")}"
+            if (urlParams.isNotEmpty()) {
+                if (jwt.isNullOrEmpty()){
+                    return "$baseUrl/$callName#${urlParams.joinToString("&")}"
+                } else {
+                    return "$baseUrl/$callName?jwt=$jwt#${urlParams.joinToString("&")}"
+                }
+                
             } else {
                 "$baseUrl/$callName"
             }

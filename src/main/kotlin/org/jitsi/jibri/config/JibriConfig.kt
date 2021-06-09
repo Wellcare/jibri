@@ -76,6 +76,13 @@ data class XmppEnvironmentConfig(
      */
     @JsonProperty("baseUrl")
     val baseUrl: String?,
+
+    /**
+     * Jwt for redirect to web
+     */
+    @JsonProperty("jwt")
+    val jwt: String?,
+
     /**
      * The login information for the control API
      */
@@ -129,6 +136,9 @@ fun com.typesafe.config.Config.toXmppEnvironment(): XmppEnvironmentConfig =
         xmppDomain = getString("xmpp-domain"),
         baseUrl = if (hasPath("base-url")) {
             getString("base-url")
+        } else null,
+        jwt = if (hasPath("jwt")) {
+            getString("jwt")
         } else null,
         controlLogin = getConfig("control-login").toXmppCredentials(),
         controlMuc = getConfig("control-muc").toXmppMuc(),

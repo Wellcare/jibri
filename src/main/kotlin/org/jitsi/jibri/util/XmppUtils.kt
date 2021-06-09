@@ -29,7 +29,8 @@ fun getCallUrlInfoFromJid(
     roomJid: EntityBareJid,
     stripFromRoomDomain: String,
     xmppDomain: String,
-    baseUrl: String?
+    baseUrl: String?,
+    jwt: String?
 ): CallUrlInfo {
     try {
         // The url domain is pulled from the xmpp domain of the connection sending the request
@@ -49,10 +50,14 @@ fun getCallUrlInfoFromJid(
         if (!baseUrl.isNullOrEmpty()) {
             baseCallUrl = baseUrl
         }
+        var jwtUrl = ""
+        if (!jwt.isNullOrEmpty()) {
+            jwtUrl = jwt
+        }
 
         return when {
-            subdomain.isEmpty() -> CallUrlInfo(baseCallUrl, callName)
-            else -> CallUrlInfo("$baseCallUrl/$subdomain", callName)
+            subdomain.isEmpty() -> CallUrlInfo(baseCallUrl, callName, jwtUrl)
+            else -> CallUrlInfo("$baseCallUrl/$subdomain", callName, jwtUrl)
         }
     } catch (e: Exception) {
         throw CallUrlInfoFromJidException(
