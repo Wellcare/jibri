@@ -68,7 +68,7 @@ class CallUrlInfoTest : ShouldSpec() {
                         val differentCallName = CallUrlInfo("differentUrl", "differentCallName")
                         val differentBaseUrlCase = CallUrlInfo("BASEURL", "callName")
                         val differentCallNameCase = CallUrlInfo("baseUrl", "CALLNAME")
-                        val withUrlParams = CallUrlInfo("baseUrl", "callName", listOf("one", "two", "three"))
+                        val withUrlParams = CallUrlInfo("baseUrl", "callName","", listOf("one", "two", "three"))
 
                         val t = table(
                             headers("left", "right", "shouldEqual"),
