@@ -30,7 +30,7 @@ fun getFfmpegCommandLinux(ffmpegExecutorParams: FfmpegExecutorParams, sink: Sink
         "-f", ffmpegExecutorParams.audioSource,
         "-thread_queue_size", ffmpegExecutorParams.queueSize.toString(),
         "-i", ffmpegExecutorParams.audioDevice,
-        "-acodec", "pcm_s16le", "-strict", "-2", "-ar", "16000", "-ac", "1", "-b:a", "128k",
+        "-acodec", "pcm_s16le", "-strict", "-2", "-ar", "44100", "-ac", "1", "-b:a", "128k",
         // "-af", "aresample=async=1",
         // "-c:v", "libx264", "-preset", ffmpegExecutorParams.videoEncodePreset,
         // *sink.options, "-pix_fmt", "yuv420p", "-r", ffmpegExecutorParams.framerate.toString(),
